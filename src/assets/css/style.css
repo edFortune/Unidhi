@@ -1,10 +1,9 @@
 /* ==== Google font ==== */
-
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600);
+/* @import url("http: //fonts.googleapis.com/css?family=Open+Sans:400,300,700,600"); */
 @import url('font-awesome.css');
 /* ==== overwrite bootstrap standard ==== */
-
 @import url('animate.css');
+
 body {
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 14px;
@@ -94,7 +93,6 @@ a:hover {
 /*===========================
   Menu and Navigation
 ============================ */
-
 .navigation {
   background-color: #fff;
   padding: 0;
@@ -163,7 +161,6 @@ a:hover {
 /*===========================
   slider
 ============================ */
-
 #main-slider {
   margin-top: 40px;
 }
@@ -377,7 +374,6 @@ a:hover {
 }
 
 /* --- about us --- */
-
 .aboutus {
   padding: 50px;
 }
@@ -538,7 +534,6 @@ a:hover {
 }
 
 /* --- footer --- */
-
 .footer {
   background: #1BBD36;
   padding: 15px 22px;
@@ -609,7 +604,6 @@ ul.social-network li a {
 }
 
 /* --- services --- */
-
 .services {
   padding: 50px;
 }
@@ -662,7 +656,6 @@ ul.social-network li a {
 }
 
 /* --- portfolio --- */
-
 #portfolio .center p {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -726,9 +719,7 @@ ul.social-network li a {
 }
 
 /* Start: Recommended Isotope styles */
-
 /**** Isotope Filtering ****/
-
 .isotope-item {
   z-index: 2;
 }
@@ -739,7 +730,6 @@ ul.social-network li a {
 }
 
 /**** Isotope CSS3 transitions ****/
-
 .isotope,
 .isotope .isotope-item {
   -webkit-transition-duration: 0.8s;
@@ -766,7 +756,6 @@ ul.social-network li a {
 }
 
 /**** disabling Isotope CSS3 transitions ****/
-
 .isotope.no-transition,
 .isotope.no-transition .isotope-item,
 .isotope .isotope-item.no-transition {
@@ -778,9 +767,7 @@ ul.social-network li a {
 }
 
 /* End: Recommended Isotope styles */
-
 /* disable CSS transitions for containers with infinite scrolling*/
-
 .isotope.infinite-scrolling {
   -webkit-transition: none;
   -moz-transition: none;
@@ -790,7 +777,6 @@ ul.social-network li a {
 }
 
 /* --- Map --- */
-
 .map {
   position: relative;
   margin-bottom: 40px;
@@ -811,7 +797,6 @@ ul.social-network li a {
 }
 
 /* --- blog --- */
-
 #blog {
   margin-top: 50px;
 }
@@ -1076,7 +1061,7 @@ ul.pagination>li:hover>a {
 }
 
 .search_box {
-  background-image: url("../images/search_icon.png");
+  /* background-image: url("../images/search_icon.png"); */
   background-position: 314px 15px;
   background-repeat: no-repeat;
   border-color: #DEDEDE;
@@ -1126,7 +1111,6 @@ ul.sidebar-gallery {
 }
 
 /* --- contact --- */
-
 #contact-page {
   padding-top: 0;
   background: #fff;

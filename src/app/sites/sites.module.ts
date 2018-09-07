@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
-import { SiteRoutingModule } from './sites-routing.module';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../environments/environment';
-
 export const firebaseConfig = environment.firebaseConfig;
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
@@ -15,6 +13,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ServicesComponent } from './services/services.component';
+import { SiteRoutingModule } from './sites-routing.module';
+import { NavHomeComponent } from './nav-home/nav-home.component';
+import { NavSiteComponent } from './nav-site/nav-site.component';
+
 @NgModule({
     imports: [
         FormsModule,
@@ -24,16 +26,18 @@ import { ServicesComponent } from './services/services.component';
         CommonModule
     ],
     declarations: [
-    AboutComponent,
-    BlogComponent,
-    ContactComponent,
-    FormComponent,
-    HomeComponent,
-    LoginComponent,
-    PortfolioComponent,
-    ServicesComponent],
+        AboutComponent,
+        BlogComponent,
+        ContactComponent,
+        FormComponent,
+        HomeComponent,
+        LoginComponent,
+        PortfolioComponent,
+        ServicesComponent,
+        NavHomeComponent,
+        NavSiteComponent],
     providers: [
     ],
 })
-export class DashboardModule {
+export class SitesModule {
 }

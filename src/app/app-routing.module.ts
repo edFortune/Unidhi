@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './sites/home.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', loadChildren: './sites/sites.module#SitesModule' },
   { path: 'dash', loadChildren: './dashboard/dashboard.module#DashboardModule' },
 ];
 

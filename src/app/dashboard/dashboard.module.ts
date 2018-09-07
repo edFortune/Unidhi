@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { DashComponent } from './dash.component';
 import { DashRoutingModule } from './dash-routing.module';
-import { APP_BASE_HREF, CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { environment } from '../../environments/environment';
 
 export const firebaseConfig = environment.firebaseConfig;
@@ -22,9 +22,7 @@ import { BlockFormComponent } from './shared/block-form/block-form.component';
         DashComponent,
         BlockFormComponent,
     ],
-    providers: [
-        { provide: APP_BASE_HREF, useValue: '/dash' },
-    ],
+    providers: [],
 })
 export class DashboardModule {
 }
