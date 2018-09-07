@@ -1,0 +1,129 @@
+<form class="form-horizontal" role="form" style="width:100%">
+
+  <h3 class="box-title">
+    {{title}}
+  </h3>
+  <hr class="m-t-0 m-b-40">
+  <div class="row" *ngFor="let input of inputs" style="margin-bottom:5px;">
+
+
+    <div class="control-label text-left col-md-2">
+      {{input.label}}
+    </div>
+
+    <div [ngSwitch]="input.type" class="control-label text-left col-md-10">
+      <!-- Text -->
+      <div *ngSwitchCase="'text'">
+        <input type="text" class="form-control" [(ngModel)]="data[input.props]" [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <!-- Password -->
+      <div *ngSwitchCase="'password'">
+        <input type="password" class="form-control" [(ngModel)]="data[input.props]" [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <!-- Select -->
+      <div *ngSwitchCase="'select'">
+        <select class="custom-select col-12" [(ngModel)]="data[input.props]" [ngModelOptions]="{standalone: true}">
+          <option *ngFor="let option of input.options" value="{{option}}">{{option}}</option>
+        </select>
+      </div>
+
+      <!-- Tags input -->
+      <div *ngSwitchCase="'tagsinput'">
+        <div class="input-group  m-t-20 m-b-30">
+          <input type="text" value="{{data[input.props]}}" [(ngModel)]="data[input.props]" data-role="tagsinput"
+            placeholder="Add {{input.label}}" [ngModelOptions]="{standalone: true}">
+        </div>
+
+      </div>
+
+      <!-- Date Picker -->
+      <div *ngSwitchCase="'dateTime'" class="form-group">
+        <input min="1990-12-31" type="date" class="form-control" [(ngModel)]="data[input.props]" [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <!-- Array of object -->
+      <div *ngSwitchCase="'arrayObject'" style="margin-top:10px;">
+        <hr class="m-t-0 m-b-40">
+        <div class="row">
+          <div class="col-md-11">
+            <ul style="list-style-type: none;padding-left: 0;">
+              <li *ngFor="let template of data[input.props]; let i = index" style="display:inline;">
+                <span class="badge badge-warning" style="padding:10px; margin-bottom: 8px; margin-left: 5px;">{{transformData(template)}}</span>
+                <i class="mdi mdi-delete" (click)="removeObj(i, data[input.props])" style="cursor:pointer"></i>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-1">
+            <button type="submit" class="btn btn-primary" (click)="clickToAdd(input.model, data[input.props])"
+              data-toggle="modal" data-target=".bs-example-modal-sm">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Object -->
+      <div *ngSwitchCase="'object'" style="margin-top:10px;">
+        <hr class="m-t-0 m-b-40">
+        <div class="row">
+          <div class="col-md-11">
+
+
+            <div *ngFor="let key of JSObject.keys(input.model); let i = index" [ngSwitch]="checkType(dataHolder[input.props][key])">
+              {{capitalWord(key)}}
+              <div *ngSwitchCase="'string'">
+                <input type="text" class="form-control" [(ngModel)]="data[input.props][key]" [ngModelOptions]="{standalone: true}">
+              </div>
+
+              <div *ngSwitchCase="'date'">
+                <input type="date" class="form-control" [(ngModel)]="data[input.props][key]" [ngModelOptions]="{standalone: true}">
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</form>
+
+<!-- sample modal content -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"
+  style="display: none;">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="mySmallModalLabel">Small modal</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      </div>
+      <div class="modal-body">
+
+        <form #myForm="ngForm">
+          <div *ngFor="let key of JSObject.keys(templateModal)" [ngSwitch]="checkType(templateModalHolder[key])">
+            {{capitalWord(key)}}
+            <div *ngSwitchCase="'string'">
+              <input type="text" class="form-control" [(ngModel)]="templateModal[key]" [ngModelOptions]="{standalone: true}">
+            </div>
+
+            <div *ngSwitchCase="'date'">
+              <input type="date" class="form-control" [(ngModel)]="templateModal[key]" [ngModelOptions]="{standalone: true}">
+            </div>
+          </div>
+
+
+          <hr class="m-t-0 m-b-40">
+          <button class="btn btn-primary" type="submit" (click)="addToArray(myForm)" data-dismiss="modal">Submit</button>
+        </form>
+
+
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
