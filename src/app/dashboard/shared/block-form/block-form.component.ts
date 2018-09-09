@@ -12,7 +12,7 @@ export class BlockFormComponent implements OnInit {
   @Input() title: string;
 
 
-  JSObject: Object = Object;
+  JSObject: any = Object;
   templateModal: Object = Object;
   templateModalHolder: Object = Object;
   arrayTemplate: any[] = [];

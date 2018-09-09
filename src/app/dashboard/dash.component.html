@@ -1,1 +1,24 @@
-<router-outlet></router-outlet>
+<div id="mimin" class="dashboard">
+  <!-- start: Header -->
+  <app-nav-bar></app-nav-bar>
+  <!-- end: Header -->
+
+  <div class="container-fluid mimin-wrapper">
+
+    <!-- start:Left Menu -->
+    <app-side-bar></app-side-bar>
+    <!-- end:Left Menu -->
+
+    <!-- start: content -->
+    <router-outlet></router-outlet>
+    <!-- end: content -->
+
+    <!-- start: right menu -->
+    <!-- end: right menu -->
+
+  </div>
+
+  <!-- start: Mobile -->
+  <!-- end: Mobile -->
+
+</div>

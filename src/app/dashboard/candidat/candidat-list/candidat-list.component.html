@@ -1,0 +1,56 @@
+<!-- start: Content -->
+<div id="content">
+  <div class="panel box-shadow-none content-header">
+    <div class="panel-body">
+      <div class="col-md-12">
+        <h3 class="animated fadeInLeft">Data Tables</h3>
+        <p class="animated fadeInDown">
+          Table <span class="fa-angle-right fa"></span> Data Tables
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 top-20 padding-0">
+    <div class="col-md-12">
+      <div class="panel">
+        <div class="panel-heading">
+          <h3>Liste des candidats</h3>
+          <div>
+            <a class="btn btn-primary btn-xs">
+              New
+            </a>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="responsive-table">
+
+            <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Recherche...' (keyup)='updateFilter($event)' />
+
+            <div>
+              <ngx-datatable [rows]="rows" [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+                [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [selected]="selected" [selectionType]="'checkbox'"
+                [selectAllRowsOnPage]="false">
+
+
+                <ngx-datatable-column [width]="30" [sortable]="false" [canAutoResize]="false" [draggable]="false"
+                  [resizeable]="false" [headerCheckboxable]="true" [checkboxable]="true"></ngx-datatable-column>
+
+                <ngx-datatable-column prop="nom" name="Nom"></ngx-datatable-column>
+                <ngx-datatable-column prop="nomUsage" name="Nom d'usage"></ngx-datatable-column>
+                <ngx-datatable-column prop="prenom" name="Prénom"></ngx-datatable-column>
+                <ngx-datatable-column prop="carteId" name="ID"></ngx-datatable-column>
+                <ngx-datatable-column prop="commune" name="Commune"></ngx-datatable-column>
+                <ngx-datatable-column prop="dateNaissance" name="Date de naissance"></ngx-datatable-column>
+                <ngx-datatable-column prop="adresse" name="Adresse"></ngx-datatable-column>
+                <ngx-datatable-column prop="email" name="E-mail"></ngx-datatable-column>
+                <ngx-datatable-column prop="diplome" name="Diplome"></ngx-datatable-column>
+              </ngx-datatable>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end: content -->

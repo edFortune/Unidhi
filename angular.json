@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Unidhi",
+            "outputPath": "dist/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,14 +28,30 @@
               "src/assets/css/font-awesome.min.css",
               "src/assets/css/animate.css",
               "src/assets/css/prettyPhoto.css",
-              "src/assets/css/style.css"
+              "src/assets/css/style.css",
+
+              "src/assets/css/style-dash.css"
             ],
             "scripts": [
               "src/assets/js/jquery-2.1.1.min.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/jquery.prettyPhoto.js",
               "src/assets/js/jquery.isotope.min.js",
-              "src/assets/js/wow.min.js"
+              "src/assets/js/wow.min.js",
+
+              "src/assets/js/plugins/moment.min.js",
+              "src/assets/js/plugins/fullcalendar.min.js",
+              "src/assets/js/plugins/jquery.nicescroll.js",
+              "src/assets/js/plugins/maps/jquery.vmap.world.js",
+              "src/assets/js/plugins/jquery.vmap.sampledata.js",
+              "src/assets/js/plugins/chart.min.js",
+
+              "src/assets/js/plugins/jquery.datatables.min.js",
+              "src/assets/js/plugins/datatables.bootstrap.min.js",
+
+              "src/assets/js/main.js",
+              "src/assets/js/main-home.js"
+
             ]
           },
           "configurations": {
