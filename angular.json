@@ -28,9 +28,8 @@
               "src/assets/css/font-awesome.min.css",
               "src/assets/css/animate.css",
               "src/assets/css/prettyPhoto.css",
-              "src/assets/css/style.css",
+              "src/assets/css/style.css"
 
-              "src/assets/css/style-dash.css"
             ],
             "scripts": [
 
