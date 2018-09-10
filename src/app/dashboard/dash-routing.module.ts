@@ -11,6 +11,7 @@ const routes: Routes = [
             { path: '', component: DashHomeComponent },
             { path: 'candidats', component: CandidatListComponent },
             { path: 'candidats/new', component: CandidatNewComponent },
+            { path: 'candidats/:id', component: CandidatNewComponent },
         ]
     },
 

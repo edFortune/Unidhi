@@ -1,30 +1,32 @@
-<form class="form-horizontal" role="form" style="width:100%">
+<form #formRoot="ngForm" class="form-horizontal" role="form" style="width:100%">
 
   <h3 class="box-title">
     {{title}}
   </h3>
   <hr class="m-t-0 m-b-40">
-  <div class="row" *ngFor="let input of inputs" style="margin-bottom:5px;">
+  <div class="row" *ngFor="let input of inputs; let idx = index" style="margin-bottom:5px;">
 
 
     <div class="control-label text-left col-md-2">
-      {{input.label}}
+      <label for="{{idx}}">
+        {{input.label}}
+      </label>
     </div>
 
     <div [ngSwitch]="input.type" class="control-label text-left col-md-10">
       <!-- Text -->
       <div *ngSwitchCase="'text'">
-        <input type="text" class="form-control" [(ngModel)]="data[input.props]" [ngModelOptions]="{standalone: true}">
+        <input type="text" class="form-control" [(ngModel)]="data[input.props]" id="{{idx}}" name="{{idx}}">
       </div>
 
       <!-- Password -->
       <div *ngSwitchCase="'password'">
-        <input type="password" class="form-control" [(ngModel)]="data[input.props]" [ngModelOptions]="{standalone: true}">
+        <input type="password" class="form-control" [(ngModel)]="data[input.props]" id="{{idx}}" name="{{idx}}">
       </div>
 
       <!-- Select -->
       <div *ngSwitchCase="'select'">
-        <select class="custom-select col-12" [(ngModel)]="data[input.props]" [ngModelOptions]="{standalone: true}">
+        <select class="custom-select col-12" [(ngModel)]="data[input.props]" id="{{idx}}" name="{{idx}}">
           <option *ngFor="let option of input.options" value="{{option}}">{{option}}</option>
         </select>
       </div>
@@ -33,14 +35,14 @@
       <div *ngSwitchCase="'tagsinput'">
         <div class="input-group  m-t-20 m-b-30">
           <input type="text" value="{{data[input.props]}}" [(ngModel)]="data[input.props]" data-role="tagsinput"
-            placeholder="Add {{input.label}}" [ngModelOptions]="{standalone: true}">
+            placeholder="Add {{input.label}}" id="{{idx}}" name="{{idx}}">
         </div>
 
       </div>
 
       <!-- Date Picker -->
       <div *ngSwitchCase="'dateTime'" class="form-group">
-        <input min="1990-12-31" type="date" class="form-control" [(ngModel)]="data[input.props]" [ngModelOptions]="{standalone: true}">
+        <input min="1990-12-31" type="date" class="form-control" [(ngModel)]="data[input.props]" id="{{idx}}" name="{{idx}}">
       </div>
 
       <!-- Array of object -->

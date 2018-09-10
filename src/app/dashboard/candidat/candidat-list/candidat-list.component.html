@@ -16,9 +16,27 @@
         <div class="panel-heading">
           <h3>Liste des candidats</h3>
           <div>
-            <a routerLink="/dash/candidats/new" class="btn btn-primary btn-xs">
-              New
-            </a>
+
+            <span>
+              <button routerLink="/dash/candidats/new" class="btn btn-primary btn-xs">
+                New
+              </button>
+            </span>
+
+            <span style="margin-left:5px;">
+              <button (click)="delete()" class="btn btn-danger btn-xs">
+                <span class="fa fa-trash"></span>
+                Delete
+              </button>
+            </span>
+
+            <span style="margin-left:5px;">
+              <button (click)="edit()" class="btn btn-info btn-xs">
+                <span class="fa fa-trash"></span>
+                Edit
+              </button>
+            </span>
+
           </div>
         </div>
         <div class="panel-body">
@@ -27,9 +45,9 @@
             <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Recherche...' (keyup)='updateFilter($event)' />
 
             <div>
-              <ngx-datatable [rows]="rows" [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+              <ngx-datatable class="material" [rows]="rows" [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
                 [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [selected]="selected" [selectionType]="'checkbox'"
-                [selectAllRowsOnPage]="false">
+                [selectAllRowsOnPage]="false" (select)='onSelect($event)'>
 
 
                 <ngx-datatable-column [width]="30" [sortable]="false" [canAutoResize]="false" [draggable]="false"

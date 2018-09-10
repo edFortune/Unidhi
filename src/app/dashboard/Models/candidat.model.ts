@@ -21,5 +21,6 @@ export class Candidat {
     telephoneFixe: string = '';
     portable: string = '';
     email: string = '';
+    docId: string = '';
     Responsable: Responsable = new Responsable();
 } 

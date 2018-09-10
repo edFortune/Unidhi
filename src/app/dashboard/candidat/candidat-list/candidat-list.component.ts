@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Candidat } from '../../Models/candidat.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,12 +17,12 @@ export class CandidatListComponent implements OnInit {
   candidatCollection: AngularFirestoreCollection<Candidat>;
   candidats: Observable<Candidat[]>;
 
-  selected = [];
+  selected: Array<Candidat> = [];
   rows = [];
   columns = []
   temp = [];
 
-  constructor(private afs: AngularFirestore) {
+  constructor(private afs: AngularFirestore, private router: Router) {
     this.temp = this.rows;
   }
 
@@ -33,6 +34,7 @@ export class CandidatListComponent implements OnInit {
       let can = [];
       data.forEach(current => {
         let data = current.payload.doc.data();
+        data.docId = current.payload.doc.id;
         can.push(data);
       });
       this.rows = can;
@@ -55,6 +57,29 @@ export class CandidatListComponent implements OnInit {
     this.rows = temp;
     // Whenever the filter changes, always go back to the first page
     this.table.offset = 0;
+  }
+
+  onSelect({ selected }) {
+    this.selected.splice(0, this.selected.length);
+    this.selected.push(...selected);
+  }
+
+  edit() {
+    if (this.selected.length != 1)
+      return;
+
+    let candidat = this.selected[0];
+
+    this.router.navigate(["/dash/candidats/" + candidat.docId]);
+
+  }
+
+  delete() {
+
+    this.selected.forEach(doc => {
+      this.candidatCollection.doc(doc.docId).delete();
+    });
+
   }
 
 }
