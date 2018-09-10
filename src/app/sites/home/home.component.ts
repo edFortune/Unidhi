@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
+declare var $: any;
 
 @Component({
   selector: 'app-home',
@@ -12,6 +14,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

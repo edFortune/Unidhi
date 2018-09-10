@@ -16,6 +16,15 @@ import { ServicesComponent } from './services/services.component';
 import { SiteRoutingModule } from './sites-routing.module';
 import { NavHomeComponent } from './nav-home/nav-home.component';
 import { NavSiteComponent } from './nav-site/nav-site.component';
+import { MotRecteurComponent } from './rectorat/mot-recteur/mot-recteur.component';
+import { HistoireComponent } from './rectorat/histoire/histoire.component';
+import { CodeEtiqueComponent } from './rectorat/code-etique/code-etique.component';
+import { VisionComponent } from './rectorat/vision/vision.component';
+import { ScienceAdministrativeComponent } from './programmes/preparatoire/science-administrative/science-administrative.component';
+import { SciencePolitiqueComponent } from './programmes/preparatoire/science-politique/science-politique.component';
+import { EtudiantPostGradueComponent } from './admission/requisition/etudiant-post-gradue/etudiant-post-gradue.component';
+import { EtudiantGradueComponent } from './admission/requisition/etudiant-gradue/etudiant-gradue.component';
+import { EtudiantPreparatoireComponent } from './admission/requisition/etudiant-preparatoire/etudiant-preparatoire.component';
 
 @NgModule({
     imports: [
@@ -35,7 +44,16 @@ import { NavSiteComponent } from './nav-site/nav-site.component';
         PortfolioComponent,
         ServicesComponent,
         NavHomeComponent,
-        NavSiteComponent],
+        NavSiteComponent,
+        MotRecteurComponent,
+        HistoireComponent,
+        CodeEtiqueComponent,
+        VisionComponent,
+        ScienceAdministrativeComponent,
+        SciencePolitiqueComponent,
+        EtudiantPostGradueComponent,
+        EtudiantGradueComponent,
+        EtudiantPreparatoireComponent],
     providers: [
     ],
 })
