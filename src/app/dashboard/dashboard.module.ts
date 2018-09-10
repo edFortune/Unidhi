@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { DashComponent } from './dash.component';
 import { DashRoutingModule } from './dash-routing.module';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../environments/environment';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTreeModule } from '@angular/material/tree';
 
 export const firebaseConfig = environment.firebaseConfig;
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -26,8 +28,10 @@ import { CandidatNewComponent } from './candidat/candidat-new/candidat-new.compo
         AngularFireModule.initializeApp(firebaseConfig),
         AngularFirestoreModule,
         CommonModule,
-        NgxDatatableModule
+        NgxDatatableModule,
+        MatTreeModule
 
+        //BrowserAnimationsModule,
     ],
     declarations: [
         DashComponent,
@@ -39,9 +43,10 @@ import { CandidatNewComponent } from './candidat/candidat-new/candidat-new.compo
         NavBarComponent,
         DashHomeComponent,
         CandidatListComponent,
-        CandidatNewComponent,
+        CandidatNewComponent
     ],
     providers: [],
+    schemas: [NO_ERRORS_SCHEMA]
 })
 export class DashboardModule {
 }

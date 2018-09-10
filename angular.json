@@ -33,6 +33,7 @@
               "src/assets/css/style-dash.css"
             ],
             "scripts": [
+
               "src/assets/js/jquery-2.1.1.min.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/jquery.prettyPhoto.js",
@@ -51,6 +52,7 @@
 
               "src/assets/js/main.js",
               "src/assets/js/main-home.js"
+
 
             ]
           },

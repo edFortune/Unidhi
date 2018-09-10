@@ -25,8 +25,6 @@ export class BlockFormComponent implements OnInit {
 
     this.dataHolder = JSON.parse(JSON.stringify(this.data));
 
-    console.log(this.dataHolder);
-
 
   }
 
@@ -58,9 +56,6 @@ export class BlockFormComponent implements OnInit {
   }
 
   checkType(value: any): string {
-
-    console.log(Date.parse(value));
-
 
     if (value instanceof Array)
       return 'list';

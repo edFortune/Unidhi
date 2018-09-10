@@ -1,3 +1,40 @@
-<p>
-  candidat-new works!
-</p>
+<!-- start: Content -->
+<div id="content">
+  <div class="panel box-shadow-none content-header">
+    <div class="panel-body">
+      <div class="col-md-12">
+        <h3 class="animated fadeInLeft">Nouveau candidat</h3>
+        <p class="animated fadeInDown">
+          <a routerLink="/dash/candidats">Liste des candidats</a>
+          <span class="fa-angle-right fa"></span>
+          Nouveau candidat
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-element">
+    <div class="col-md-12 padding-0">
+      <div class="col-md-12">
+        <div class="panel form-element-padding">
+
+          <div class="panel-heading">
+            <h4>Forme</h4>
+          </div>
+
+          <div class="panel-body" style="padding-bottom:30px;">
+            <div class="col-md-12">
+
+              <app-block-form title="" [inputs]="candidatInputs" [data]="candidat"></app-block-form>
+              <hr class="m-t-0 m-b-40">
+              <button class="btn btn-primary" type="submit" (click)="save()">Submit</button>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end: content -->
