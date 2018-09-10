@@ -40,6 +40,9 @@ export class CandidatNewComponent implements OnInit {
     // subscribe to router event
     this.activatedRoute.params.subscribe((params: Params) => {
       this.userId = params['id'];
+      if (!this.userId)
+        return;
+
       this.candidatRef.doc(this.userId).valueChanges().forEach(ele => {
         if (!ele) {
           this.title = "Nouveau candidat";
@@ -73,6 +76,10 @@ export class CandidatNewComponent implements OnInit {
       });
     }
 
+  }
+
+  back() {
+    this.router.navigate(["/dash/candidats"]);
   }
 
 
