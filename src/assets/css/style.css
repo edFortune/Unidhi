@@ -1,8 +1,10 @@
 /* ==== Google font ==== */
-/* @import url("http: //fonts.googleapis.com/css?family=Open+Sans:400,300,700,600"); */
+/* @import url(http: //fonts.googleapis.com/css?family=Open+Sans:400,300,700,600); */
 @import url('font-awesome.css');
 /* ==== overwrite bootstrap standard ==== */
 @import url('animate.css');
+
+
 
 body {
   font-family: 'Open Sans', Arial, sans-serif;
@@ -116,6 +118,7 @@ a:hover {
   font-size: 12px;
   float: right;
   text-transform: uppercase;
+
 }
 
 .menu ul.nav-tabs li {
@@ -156,6 +159,7 @@ a:hover {
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
 }
+
 
 /*===========================
   slider
@@ -214,6 +218,7 @@ a:hover {
   text-align: right;
   position: absolute;
 }
+
 
 #main-slider .carousel .item {
   background-position: 50%;
@@ -329,6 +334,7 @@ a:hover {
 #partner p {
   color: #fff;
   font-size: 20px;
+
 }
 
 .partners ul {
@@ -481,6 +487,7 @@ a:hover {
 .progress .color4 span:before {
   border-color: #db3615 transparent transparent transparent;
 }
+
 
 .about {
   background: #eee;
@@ -655,6 +662,7 @@ ul.social-network li a {
 }
 
 /* --- portfolio --- */
+
 #portfolio .center p {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -774,6 +782,7 @@ ul.social-network li a {
   -o-transition: none;
   transition: none;
 }
+
 
 /* --- Map --- */
 .map {
@@ -1197,6 +1206,7 @@ a.scrollup:hover {
   padding-left: 3px;
   padding-left: 4px \9;
   /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
   margin-bottom: 0;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1221,6 +1231,8 @@ a.scrollup:hover {
 .search-query:focus+button {
   z-index: 3;
 }
+
+
 
 .dropdown-submenu {
   position: relative;
@@ -1268,61 +1280,4 @@ a.scrollup:hover {
   -webkit-border-radius: 6px 0 6px 6px;
   -moz-border-radius: 6px 0 6px 6px;
   border-radius: 6px 0 6px 6px;
-}
-
-/* ========================================= */
-.hoves:hover>.dropdown-menu {
-  display: block !important;
-  -webkit-transition: height .5s ease;
-  -webkit-transition-delay: .4s;
-}
-
-.dropdown-submenu {
-  position: relative;
-}
-
-.dropdown-submenu>.dropdown-menu {
-  top: 0;
-  left: 100%;
-  margin-top: -6px;
-  margin-left: -1px;
-  -webkit-border-radius: 0 6px 6px 6px;
-  -moz-border-radius: 0 6px 6px 6px;
-  border-radius: 0 6px 6px 6px;
-  -webkit-transition: height .5s ease;
-  -webkit-transition-delay: .4s;
-}
-
-.dropdown-submenu>a:after {
-  display: block;
-  content: " ";
-  float: right;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #cccccc;
-  margin-top: 5px;
-  margin-right: -10px;
-}
-
-.dropdown-submenu:hover>a:after {
-  border-left-color: #555;
-}
-
-.dropdown-submenu.pull-left {
-  float: none;
-}
-
-.dropdown-submenu.pull-left>.dropdown-menu {
-  left: -100%;
-  margin-left: 10px;
-  -webkit-border-radius: 6px 0 6px 6px;
-  -moz-border-radius: 6px 0 6px 6px;
-  border-radius: 6px 0 6px 6px;
-}
-
-.dropdown-submenu {
-  position: relative;
 }

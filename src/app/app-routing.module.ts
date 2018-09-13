@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', loadChildren: './sites/sites.module#SitesModule' },
   { path: 'dash', loadChildren: './dashboard/dashboard.module#DashboardModule' },
+  { path: 'pages', loadChildren: './pages/pages.module#PagesModule' },
 ];
 
 @NgModule({

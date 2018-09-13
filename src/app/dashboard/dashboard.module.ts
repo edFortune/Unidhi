@@ -1,52 +1,24 @@
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { DashComponent } from './dash.component';
-import { DashRoutingModule } from './dash-routing.module';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { environment } from '../../environments/environment';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTreeModule } from '@angular/material/tree';
+import { DashboardComponent } from './dashboard.component';
+import { DashboardRoutingModule } from './dashboard-routing.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
-export const firebaseConfig = environment.firebaseConfig;
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireModule } from 'angularfire2';
-import { FormsModule } from '@angular/forms';
-import { BlockFormComponent } from './shared/block-form/block-form.component';
-import { EtudiantComponent } from './etudiant/etudiant.component';
-import { ProfesseurComponent } from './professeur/professeur.component';
-import { SitesComponent } from './sites/sites.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { DashHomeComponent } from './dash-home/dash-home.component';
-import { CandidatListComponent } from './candidat/candidat-list/candidat-list.component';
-import { CandidatNewComponent } from './candidat/candidat-new/candidat-new.component';
 
 @NgModule({
-    imports: [
-        FormsModule,
-        DashRoutingModule,
-        AngularFireModule.initializeApp(firebaseConfig),
-        AngularFirestoreModule,
-        CommonModule,
-        NgxDatatableModule,
-        MatTreeModule
-
-        //BrowserAnimationsModule,
-    ],
-    declarations: [
-        DashComponent,
-        BlockFormComponent,
-        EtudiantComponent,
-        ProfesseurComponent,
-        SitesComponent,
-        SideBarComponent,
-        NavBarComponent,
-        DashHomeComponent,
-        CandidatListComponent,
-        CandidatNewComponent
-    ],
-    providers: [],
-    schemas: [NO_ERRORS_SCHEMA]
+  imports: [
+    CommonModule,
+    DashboardRoutingModule
+  ],
+  declarations: [
+    NavbarComponent,
+    SidebarComponent,
+    FooterComponent,
+    DashboardComponent,
+    DashboardHomeComponent
+  ]
 })
-export class DashboardModule {
-}
+export class DashboardModule { }
