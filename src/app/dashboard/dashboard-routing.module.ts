@@ -7,7 +7,9 @@ const routes: Routes = [
   {
     path: '', component: DashboardComponent,
     children: [
-      { path: '', component: DashboardHomeComponent }
+      { path: '', component: DashboardHomeComponent },
+      { path: 'candidats', loadChildren: './candidat/candidat.module#CandidatModule' },
+      { path: 'etudiants', loadChildren: './etudiant/etudiant.module#EtudiantModule' }
     ]
   }
 ];
