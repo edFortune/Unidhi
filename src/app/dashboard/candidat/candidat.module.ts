@@ -7,23 +7,22 @@ export const firebaseConfig = environment.firebaseConfig;
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 
+import { Ng2SmartTableModule, LocalDataSource } from 'ng2-smart-table';
+
 import { CandidatRoutingModule } from './candidat-routing.module';
 import { CandidatListComponent } from './candidat-list/candidat-list.component';
 import { CandidatNewComponent } from './candidat-new/candidat-new.component';
 import { BlockFormComponent } from '../../shared/block-form/block-form.component';
-import { DataTablesModule } from 'angular-datatables';
 import { FormsModule } from '@angular/forms';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   imports: [
     CommonModule,
     CandidatRoutingModule,
-    DataTablesModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     FormsModule,
-    NgxDatatableModule,
+    Ng2SmartTableModule
   ],
   declarations: [
     CandidatListComponent,

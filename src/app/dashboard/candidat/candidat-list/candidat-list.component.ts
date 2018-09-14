@@ -1,34 +1,51 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, Subject, timer } from 'rxjs';
 import { Candidat } from '../../Models/candidat.model';
 import { Router } from '@angular/router';
-import { DatatableComponent } from '@swimlane/ngx-datatable';
+import { LocalDataSource } from 'ng2-smart-table';
+
 
 @Component({
   selector: 'app-candidat-list',
   templateUrl: './candidat-list.component.html',
   styleUrls: ['./candidat-list.component.scss']
 })
+
 export class CandidatListComponent implements OnInit {
-  @ViewChild(DatatableComponent) table: DatatableComponent;
   candidatCollection: AngularFirestoreCollection<Candidat>;
   candidats: Observable<Candidat[]>;
+  source: LocalDataSource;
+  doubleClick = 0;
 
-  selected: Array<Candidat> = [];
-  rows = [];
-  columns = []
-  temp = [];
-
-  dtOptions: DataTables.Settings = {};
   data = [];
+  settings = {
+    actions: false,
+    columns: {
+      nom: {
+        title: 'Nom',
+        filter: false
+      },
+      nomUsage: {
+        title: "Nom d'usage",
+        filter: false
+      },
+      prenom: {
+        title: 'Prénom',
+        filter: false
+      },
+      carteId: {
+        title: 'ID',
+        filter: false
+      }
+    }
+  };
+
   constructor(private afs: AngularFirestore, private router: Router) {
-    this.temp = this.rows;
+    this.source = new LocalDataSource(this.data); // create the source
   }
 
   ngOnInit() {
-
 
     this.candidatCollection = this.afs.collection('candidat');
 
@@ -37,54 +54,55 @@ export class CandidatListComponent implements OnInit {
       data.forEach(current => {
         let data = current.payload.doc.data();
         data.docId = current.payload.doc.id;
+
         can.push(data);
       });
 
-      this.rows = can;
-      this.temp = can;
-
-    });
-  }
-
-
-
-  updateFilter(event) {
-    const val = event.target.value.toLowerCase();
-
-    // filter our data
-    const temp = this.temp.filter(function (d) {
-      return (d.nom.toLowerCase().indexOf(val) !== -1 || !val) ||
-        (d.prenom.toLowerCase().indexOf(val) !== -1 || !val);
+      this.data = can;
+      this.source.load(this.data);
+      console.log(this.data);
     });
 
-    // update the rows
-    this.rows = temp;
-    // Whenever the filter changes, always go back to the first page
-    this.table.offset = 0;
   }
 
-  onSelect({ selected }) {
-    this.selected.splice(0, this.selected.length);
-    this.selected.push(...selected);
-  }
+  onRowSelect(data: Object) {
+    let candidat = <Candidat>data;
+    this.doubleClick += 1;
+    if (this.doubleClick >= 2) {
+      let id = candidat.docId;
+      console.log(id);
+      this.router.navigate(["/dash/candidats/" + id]);
+      this.doubleClick = 1;
+    }
 
-  edit() {
-    if (this.selected.length != 1)
-      return;
-
-    let candidat = this.selected[0];
-
-    this.router.navigate(["/dash/candidats/" + candidat.docId]);
 
   }
 
-  delete() {
+  onCreateConfirm(newData: Object) {
+    console.log(newData);
 
-    this.selected.forEach(doc => {
-      this.candidatCollection.doc(doc.docId).delete();
-    });
+  }
+
+  onSearch(query: string = '') {
+    this.source.setFilter([
+      {
+        field: 'nom',
+        search: query
+      },
+      {
+        field: 'nomUsage',
+        search: query
+      },
+      {
+        field: 'prenom',
+        search: query
+      }
+    ], false);
 
   }
 
 
 }
+
+
+
