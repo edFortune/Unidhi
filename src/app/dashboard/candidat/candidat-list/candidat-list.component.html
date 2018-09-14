@@ -1,3 +1,52 @@
-<p>
-  candidat-list works!
-</p>
+<h5 class="mt-4">Liste des candidats</h5>
+<div class="card">
+  <div class="card-body">
+    <div>
+
+      <span>
+        <button routerLink="/dash/candidats/new" class="btn btn-primary btn-xs">
+          New
+        </button>
+      </span>
+
+      <span style="margin-left:5px;">
+        <button (click)="delete()" class="btn btn-danger btn-xs">
+          <span class="fa fa-trash"></span>
+          Delete
+        </button>
+      </span>
+
+      <span style="margin-left:5px;">
+        <button (click)="edit()" class="btn btn-info btn-xs">
+          <span class="fa fa-trash"></span>
+          Edit
+        </button>
+      </span>
+
+    </div>
+    <hr>
+    <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Recherche...' (keyup)='updateFilter($event)' />
+
+    <div>
+      <ngx-datatable class="material" [rows]="rows" [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+        [footerHeight]="50" [rowHeight]="'auto'" [limit]="5" [selected]="selected" [selectionType]="'checkbox'"
+        [selectAllRowsOnPage]="false" (select)='onSelect($event)'>
+
+
+        <ngx-datatable-column [width]="30" [sortable]="false" [canAutoResize]="false" [draggable]="false" [resizeable]="false"
+          [headerCheckboxable]="true" [checkboxable]="true"></ngx-datatable-column>
+
+        <ngx-datatable-column prop="nom" name="Nom"></ngx-datatable-column>
+        <ngx-datatable-column prop="nomUsage" name="Nom d'usage"></ngx-datatable-column>
+        <ngx-datatable-column prop="prenom" name="Prénom"></ngx-datatable-column>
+        <ngx-datatable-column prop="carteId" name="ID"></ngx-datatable-column>
+        <ngx-datatable-column prop="commune" name="Commune"></ngx-datatable-column>
+        <ngx-datatable-column prop="dateNaissance" name="Date de naissance"></ngx-datatable-column>
+        <ngx-datatable-column prop="adresse" name="Adresse"></ngx-datatable-column>
+        <ngx-datatable-column prop="email" name="E-mail"></ngx-datatable-column>
+        <ngx-datatable-column prop="diplome" name="Diplome"></ngx-datatable-column>
+      </ngx-datatable>
+    </div>
+
+  </div>
+</div>

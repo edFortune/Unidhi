@@ -1,3 +1,14 @@
-<p>
-  candidat-new works!
-</p>
+<h5 class="mt-4">{{title}}</h5>
+
+<div class="card">
+  <div class="card-body">
+
+    <app-block-form title="" [inputs]="candidatInputs" [data]="candidat"></app-block-form>
+    <hr class="m-t-0 m-b-40">
+    <button class="btn btn-primary" type="submit" (click)="save()" style="margin:2px;">Submit</button>
+
+    <button class="btn btn-danger" (click)="back()" style="margin:2px;">Back</button>
+
+
+  </div>
+</div>
