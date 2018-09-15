@@ -7,17 +7,16 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 
 import { Ng2SmartTableModule, LocalDataSource } from 'ng2-smart-table';
-
-import { EtudiantRoutingModule } from './etudiant-routing.module';
-import { EtudiantListComponent } from './etudiant-list/etudiant-list.component';
-import { EtudiantNewComponent } from './etudiant-new/etudiant-new.component';
+import { ProfesseurRoutingModule } from './professeur-routing.module';
+import { ProfesseurNewComponent } from './professeur-new/professeur-new.component';
+import { ProfesseurListComponent } from './professeur-list/professeur-list.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    EtudiantRoutingModule,
+    ProfesseurRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     FormsModule,
@@ -25,8 +24,8 @@ import { SharedModule } from '../../shared/shared.module';
     SharedModule
   ],
   declarations: [
-    EtudiantListComponent,
-    EtudiantNewComponent
+    ProfesseurNewComponent,
+    ProfesseurListComponent
   ]
 })
-export class EtudiantModule { }
+export class ProfesseurModule { }

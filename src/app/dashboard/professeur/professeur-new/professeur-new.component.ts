@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Etudiant } from '../../Models/etudiant.model';
+import { Professeur } from '../../Models/professeur.model';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-etudiant-new',
-  templateUrl: './etudiant-new.component.html',
-  styleUrls: ['./etudiant-new.component.scss']
+  selector: 'app-professeur-new',
+  templateUrl: './professeur-new.component.html',
+  styleUrls: ['./professeur-new.component.scss']
 })
-export class EtudiantNewComponent implements OnInit {
-  etudiantRef: AngularFirestoreCollection<Etudiant>;
-  etudiant: Etudiant;
-  etudiantInputs = [];
-  title: string = "Nouveau etudiant";
-  editEtudiant: boolean = false;
+export class ProfesseurNewComponent implements OnInit {
+  professeurRef: AngularFirestoreCollection<Professeur>;
+  professeur: Professeur;
+  professeurInputs = [];
+  title: string = "Nouveau professeur";
+  editProfesseur: boolean = false;
   userId: string;
 
   constructor(private afs: AngularFirestore, private activatedRoute: ActivatedRoute, private router: Router) {
-    this.etudiantRef = this.afs.collection<Etudiant>('etudiant');
-    this.etudiant = new Etudiant();
+    this.professeurRef = this.afs.collection<Professeur>('professeur');
+    this.professeur = new Professeur();
   }
+
   ngOnInit() {
 
-    this.etudiantInputs = [
+    this.professeurInputs = [
       { label: "Nom", props: 'nom', type: 'text' },
       { label: "Nom d'usage", props: 'nomUsage', type: 'text' },
       { label: "Prénom", props: 'prenom', type: 'text' },
@@ -43,42 +43,43 @@ export class EtudiantNewComponent implements OnInit {
       if (!this.userId)
         return;
 
-      this.etudiantRef.doc(this.userId).valueChanges().forEach(ele => {
+      this.professeurRef.doc(this.userId).valueChanges().forEach(ele => {
+
         if (!ele) {
-          this.title = "Nouveau etudiant";
-          this.editEtudiant = false;
+          this.title = "Nouveau professeur";
+          this.editProfesseur = false;
           return;
         }
 
-        this.etudiant = <Etudiant>ele;
+        this.professeur = <Professeur>ele;
+        this.title = "Modifier un professeur";
+        this.editProfesseur = true;
 
-        this.title = "Modifier un etudiant";
-        this.editEtudiant = true;
       });
-
     });
 
   }
 
+
   save() {
-    if (!this.etudiant.nom || !this.etudiant.prenom || !this.etudiant.nomUsage)
+    if (!this.professeur.nom || !this.professeur.prenom || !this.professeur.nomUsage)
       return;
 
-    let etudiant = JSON.parse(JSON.stringify(this.etudiant));
+    let professeur = JSON.parse(JSON.stringify(this.professeur));
 
-    if (this.editEtudiant) {
-      this.etudiantRef.doc(this.userId).update(etudiant).then(() => {
-        this.router.navigate(["/dash/etudiants"]);
+    if (this.editProfesseur) {
+      this.professeurRef.doc(this.userId).update(professeur).then(() => {
+        this.router.navigate(["/dash/professeurs"]);
       });
     } else {
-      this.etudiantRef.add(etudiant).then(() => {
-        this.router.navigate(["/dash/etudiants"]);
+      this.professeurRef.add(professeur).then(() => {
+        this.router.navigate(["/dash/professeurs"]);
       });
     }
   }
 
   back() {
-    this.router.navigate(["/dash/etudiants"]);
+    this.router.navigate(["/dash/professeurs"]);
   }
 
 }

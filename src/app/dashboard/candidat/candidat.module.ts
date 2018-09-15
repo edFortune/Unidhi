@@ -12,8 +12,8 @@ import { Ng2SmartTableModule, LocalDataSource } from 'ng2-smart-table';
 import { CandidatRoutingModule } from './candidat-routing.module';
 import { CandidatListComponent } from './candidat-list/candidat-list.component';
 import { CandidatNewComponent } from './candidat-new/candidat-new.component';
-import { BlockFormComponent } from '../../shared/block-form/block-form.component';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -22,12 +22,12 @@ import { FormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     FormsModule,
-    Ng2SmartTableModule
+    Ng2SmartTableModule,
+    SharedModule
   ],
   declarations: [
     CandidatListComponent,
-    CandidatNewComponent,
-    BlockFormComponent
+    CandidatNewComponent
   ]
 })
 export class CandidatModule { }

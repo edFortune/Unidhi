@@ -4,17 +4,17 @@ import { Observable } from 'rxjs';
 import { Candidat } from '../../Models/candidat.model';
 import { Router } from '@angular/router';
 import { LocalDataSource } from 'ng2-smart-table';
-
+import { Professeur } from '../../Models/professeur.model';
 
 @Component({
-  selector: 'app-candidat-list',
-  templateUrl: './candidat-list.component.html',
-  styleUrls: ['./candidat-list.component.scss']
+  selector: 'app-professeur-list',
+  templateUrl: './professeur-list.component.html',
+  styleUrls: ['./professeur-list.component.scss']
 })
+export class ProfesseurListComponent implements OnInit {
 
-export class CandidatListComponent implements OnInit {
-  candidatCollection: AngularFirestoreCollection<Candidat>;
-  candidats: Observable<Candidat[]>;
+  professeurCollection: AngularFirestoreCollection<Professeur>;
+  prfesseurs: Observable<Professeur[]>;
   source: LocalDataSource;
   doubleClick = 0;
 
@@ -46,62 +46,31 @@ export class CandidatListComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.candidatCollection = this.afs.collection('candidat');
-
-    this.candidatCollection.snapshotChanges().forEach(data => {
+    this.professeurCollection = this.afs.collection('professeur');
+    this.professeurCollection.snapshotChanges().forEach(data => {
       let can = [];
       data.forEach(current => {
         let data = current.payload.doc.data();
         data.docId = current.payload.doc.id;
-
         can.push(data);
       });
-
       this.data = can;
       this.source.load(this.data);
       console.log(this.data);
     });
-
   }
 
   onRowSelect(data: Object) {
-    let candidat = <Candidat>data;
+    let professeur = <Professeur>data;
     this.doubleClick += 1;
     if (this.doubleClick >= 2) {
-      let id = candidat.docId;
+      let id = professeur.docId;
       console.log(id);
-      this.router.navigate(["/dash/candidats/" + id]);
+      this.router.navigate(["/dash/professeurs/" + id]);
       this.doubleClick = 1;
     }
 
-  }
-
-  onCreateConfirm(newData: Object) {
-    console.log(newData);
 
   }
-
-  onSearch(query: string = '') {
-    this.source.setFilter([
-      {
-        field: 'nom',
-        search: query
-      },
-      {
-        field: 'nomUsage',
-        search: query
-      },
-      {
-        field: 'prenom',
-        search: query
-      }
-    ], false);
-
-  }
-
 
 }
-
-
-
