@@ -1,15 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../core/auth.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [AngularFireAuth]
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
+  user = {
+    email: '',
+    password: ''
+  };
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
+  }
+
+  signInWithEmail() {
+    this.authService
+      .signInRegular(this.user.email, this.user.password)
+      .then((res) => {
+        this.router.navigate(['dash']);
+      })
+      .catch((err) => console.log('error: ' + err));
+  }
+
+  onCreate() {
+
   }
 
 }

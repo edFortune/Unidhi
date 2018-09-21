@@ -71,9 +71,27 @@ export class EtudiantListComponent implements OnInit {
       this.router.navigate(["/dash/etudiants/" + id]);
       this.doubleClick = 1;
     }
+  }
 
+
+  onSearch(query: string = '') {
+    this.source.setFilter([
+      {
+        field: 'nom',
+        search: query
+      },
+      {
+        field: 'nomUsage',
+        search: query
+      },
+      {
+        field: 'prenom',
+        search: query
+      }
+    ], false);
 
   }
+
 
 
 }

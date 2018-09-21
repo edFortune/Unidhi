@@ -25,6 +25,7 @@ import { SciencePolitiqueComponent } from './programmes/preparatoire/science-pol
 import { EtudiantPostGradueComponent } from './admission/requisition/etudiant-post-gradue/etudiant-post-gradue.component';
 import { EtudiantGradueComponent } from './admission/requisition/etudiant-gradue/etudiant-gradue.component';
 import { EtudiantPreparatoireComponent } from './admission/requisition/etudiant-preparatoire/etudiant-preparatoire.component';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @NgModule({
     imports: [
@@ -55,6 +56,7 @@ import { EtudiantPreparatoireComponent } from './admission/requisition/etudiant-
         EtudiantGradueComponent,
         EtudiantPreparatoireComponent],
     providers: [
+        AngularFireAuth
     ],
 })
 export class SitesModule {
