@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
-import { switchMap, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+//import { switchMap, map } from 'rxjs/operators';
 import { User } from './user';
 
 

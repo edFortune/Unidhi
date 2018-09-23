@@ -8,13 +8,21 @@ import { DashboardHomeComponent } from './dashboard-home/dashboard-home.componen
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { AngularFireAuth } from 'angularfire2/auth';
+
+import { environment } from '../../environments/environment';
+export const firebaseConfig = environment.firebaseConfig;
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireModule } from 'angularfire2';
 
 
 @NgModule({
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
   ],
   declarations: [
     NavbarComponent,
@@ -22,6 +30,9 @@ import { SharedModule } from '../shared/shared.module';
     FooterComponent,
     DashboardComponent,
     DashboardHomeComponent
+  ],
+  providers: [
+    AngularFireAuth
   ]
 })
 export class DashboardModule { }
