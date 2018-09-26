@@ -59,6 +59,8 @@ a:hover, a:focus{
     background: #b1040e;
     box-shadow: 0 0 10px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1);
     padding: 12px 50px;
+    margin-top: 50px;
+    margin-bottom: 150px;
    
 }
 
@@ -68,3 +70,11 @@ a.btn-primary:hover{
     text-decoration: none;
 }
 
+.dropdown-menu{
+    background-color: #b1040e;
+    color: #fff;
+}
+
+.img-responsive{
+    display: inline-block;
+}
