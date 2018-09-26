@@ -1,1 +1,70 @@
+h3{
+    color:#fff;
+}
+
+.carousel-caption>p{
+    color:#fff;
+    font-size: 16px;
+}
+
+
+
+.col-md-12>h2{
+    color:#000;
+    font-weight: bold;
+    font-size: 2.5em;
+    line-height: 1.25em;
+    font-family: Source Sans Pro,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.col-md-12>p{
+    font-size:1.25em;
+}
+
+.col-md-4>img{
+    display: block;
+    background-color: #620f0f;
+    background-image: linear-gradient(#771212,#620f0f);
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: none;
+    margin: 0;
+}
+
+h3{
+    font-size: 1.25em;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: .4096em;
+    line-height: 1.25em;
+}
+
+.nav>li>a:hover, .nav>li>a:focus{
+    background-color:#620f0f;
+    color: #fff;
+}
+a:hover, a:focus{
+    color:#620f0f;
+    text-decoration: underline;
+  
+}
+
+.nav-pills>li>a{
+    font-size: 16px;
+    padding-bottom: 8px;
+}
+
+.btn-primary{
+    background: #b1040e;
+    box-shadow: 0 0 10px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1);
+    padding: 12px 50px;
+   
+}
+
+a.btn-primary:hover{
+    background: #620f0f;
+    color:#fff;
+    text-decoration: none;
+}
 

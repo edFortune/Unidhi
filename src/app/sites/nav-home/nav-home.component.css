@@ -1,1 +1,43 @@
 /* @import url('../../../assets/css/style.css'); */
+nav{
+    background-color: #b1040e;
+    box-shadow: 0 0 10px rgba(0,0,0,.15), 0 3px 3px rgba(0,0,0,.15);
+    
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+    font-family: Source Sans Pro,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 32px;  
+   
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus{
+    background-color: #770903;
+    color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: #fff;
+}
+
+.dropdown-menu{
+    background-color: #fff;
+    width: 250px;
+    padding: 24 26;
+    box-shadow: inset 4px 0 0 #3b2625, inset 0 1px 0 #ddd, inset -1px 0 0 #ddd, inset 0 -1px 0 #ddd;
+}
+
+.dropdown-menu>li>a{
+    color:#b1040e;
+    padding: 6px 24px;
+    font-size: 1.25em;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus{
+     color:#fff;
+     background: #b1040e;
+}
+
+
+

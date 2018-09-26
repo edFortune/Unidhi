@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
   .hoves:hover > .dropdown-menu {
 display:block !important;
         -webkit-transition: height .5s ease;
@@ -14,136 +14,62 @@ display:block !important;
 .dropdown-submenu {
     position: relative;
 }
-</style>
-
-<header>
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="navigation">
+</style> -->
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+            aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <!-- <div class="navbar-brand">
-            <a routerLink="/">
-              <h3><span style="color:#436588">Unidhi</span></h3>
-            </a>
-          </div> -->
+          <a class="navbar-brand" href="#">Unidhi</a>
         </div>
-
-        <div class="navbar-collapse collapse">
-          <div class="menu">
-            <ul class="nav nav-tabs" role="tablist">
-              <!-- <li role="presentation"><a routerLink="index.html" class="active">Home</a></li> -->
-              <li role="presentation"><a routerLink="/">Universite</a></li>
-
-              <li role="presentation" class="dropdown"></li>
-              <li class="dropdown hoves"><a routerLink="#" class="dropdown-toggle" data-toggle="dropdown">Rectorat<b
-                    class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a routerLink="/rectorat/recteur">Mot du Recteur</a></li>
-                  <li class=""></li>
-                  <li><a routerLink="/rectorat/histoire" style="margin-top: 7%">Notre Histoire</a></li>
-                  <li class=""></li>
-                  <li><a routerLink="/rectorat/code-etique" style="margin-top: 7%">Code Etique de l'etudiant</a></li>
-                  <li class=""></li>
-                  <li><a routerLink="/rectorat/vision" style="margin-top: 7%">Notre Vision</a></li>
-                  <!-- <li class="dropdown dropdown-submenu"><a routerLink="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown Link 4</a>
-											<ul class="dropdown-menu">
-												<li><a routerLink="#">Dropdown Submenu Link 4.1</a></li>
-												<li><a routerLink="#">Dropdown Submenu Link 4.2</a></li>
-												<li><a routerLink="#">Dropdown Submenu Link 4.3</a></li>
-												<li><a routerLink="#">Dropdown Submenu Link 4.4</a></li>
-											</ul>
-										</li> -->
-
-                </ul>
-              </li>
-              <li class="dropdown hoves"><a class="dropdown-toggle" data-toggle="dropdown">Programme
-                  Offerts<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-
-                  <li class="dropdown dropdown-submenu"><a routerLink="#" class="dropdown-toggle" data-toggle="dropdown">Preparatoire</a>
-                    <ul class="dropdown-menu">
-                      <li><a routerLink="/programmes/preparatoire/science-administrative">Science Administratives</a></li>
-                      <li><a routerLink="/programmes/preparatoire/science-politique" style="margin-top: 7%">Sciences
-                          Politiques</a></li>
-                      <li><a routerLink="#" style="margin-top: 7%">Dropdown Submenu Link 4.3</a></li>
-                      <li><a routerLink="#" style="margin-top: 7%">Dropdown Submenu Link 4.4</a></li>
-                    </ul>
-                  </li>
-
-                  <li class="dropdown dropdown-submenu"><a class="dropdown-toggle" data-toggle="dropdown" style="margin-top: 7%">Programme
-                      de Certificats</a>
-                    <ul class="dropdown-menu">
-                      <li><a routerLink="#">Dropdown Submenu Link 4.1</a></li>
-                      <li><a routerLink="#" style="margin-top: 7%">Dropdown Submenu Link 4.2</a></li>
-                      <li><a routerLink="#" style="margin-top: 7%">Dropdown Submenu Link 4.3</a></li>
-                      <li><a routerLink="#" style="margin-top: 7%">Dropdown Submenu Link 4.4</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown dropdown-submenu"><a routerLink="#" class="dropdown-toggle" data-toggle="dropdown"
-                      style="margin-top: 7%">Programme de Licences</a>
-                    <ul class="dropdown-menu">
-                      <li><a routerLink="#">Dropdown Submenu Link 4.1</a></li>
-                      <li><a routerLink="#" style="margin-top: 7%">Dropdown Submenu Link 4.2</a></li>
-                      <li><a routerLink="#" style="margin-top: 7%">Dropdown Submenu Link 4.3</a></li>
-                      <li><a routerLink="#" style="margin-top: 7%">Dropdown Submenu Link 4.4</a></li>
-                    </ul>
-                  </li>
-                  <li class="dropdown dropdown-submenu"><a routerLink="#" class="dropdown-toggle" data-toggle="dropdown"
-                      style="margin-top: 7%">Programme de Master</a>
-                    <ul class="dropdown-menu">
-                      <li><a routerLink="#">Dropdown Submenu Link 4.1</a></li>
-                      <li><a routerLink="#" style="margin-top: 7%">Dropdown Submenu Link 4.2</a></li>
-                      <li><a routerLink="#" style="margin-top: 7%">Dropdown Submenu Link 4.3</a></li>
-                      <li><a routerLink="#" style="margin-top: 7%">Dropdown Submenu Link 4.4</a></li>
-                    </ul>
-                  </li>
-
-                </ul>
-              </li>
-              <li class="dropdown hoves"><a class="dropdown-toggle" data-toggle="dropdown">Admission<b class="caret"></b></a>
-                <ul class="dropdown-menu">
-
-                  <li class="dropdown dropdown-submenu"><a class="dropdown-toggle" data-toggle="dropdown">Requisition</a>
-                    <ul class="dropdown-menu">
-
-                      <li><a routerLink="/admission/etudiant-post-gradue">Etudiant Post-Gradue</a></li>
-                      <li><a routerLink="/admission/etudiant-gradue" style="margin-top: 7%">Etudiant gradue</a></li>
-                      <li><a routerLink="/admission/etudiant-preparatoire" style="margin-top: 7%">Etudiant en
-                          Preparatoire</a></li>
-                    </ul>
-                  </li>
-
-                  <li class="dropdown dropdown-submenu"><a routerLink="#" class="dropdown-toggle" data-toggle="dropdown"
-                      style="margin-top: 7%">Programme de Certificats</a>
-                    <ul class="dropdown-menu">
-                      <li><a routerLink="#">Dropdown Submenu Link 4.1</a></li>
-                      <li><a routerLink="#" style="margin-top: 7%">Dropdown Submenu Link 4.2</a></li>
-                      <li><a routerLink="#" style="margin-top: 7%">Dropdown Submenu Link 4.3</a></li>
-                      <li><a routerLink="#" style="margin-top: 7%">Dropdown Submenu Link 4.4</a></li>
-                    </ul>
-                  </li>
-
-                </ul>
-              </li>
-              <!-- <li role="presentation"><a routerLink="blog.html">Blog</a></li> -->
-              <li role="presentation"><a routerLink="/contact">Contact</a></li>
-              <li role="presentation"><a routerLink="/login" style="margin-left: 12%">Login</a></li>
-              <form id="custom-search-form" class="form-search form-horizontal pull-right">
-                <div class="input-append span12" style="margin-top: 10%">
-                  <input type="text" class="search-query" placeholder="Search">
-                  <button type="submit" class="btn"><i class="fa fa-search" style="color: black"></i></button>
-                </div>
-              </form>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#"><i class="fa fa-fw fa-home"></i> Home</a></li>
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Academics
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dLabel">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Nav header</li>
+              <li><a href="#">Separated link</a></li>
+              <li><a href="#">One more separated link</a></li>
             </ul>
-          </div>
+        </li>
+                <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admissions
+                    <span class="caret"></span></a>
+                  <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dLabel">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About
+                <span class="caret"></span></a>
+              <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dLabel">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+            <li><a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a></li> 
+          </ul>
         </div>
+        <!--/.nav-collapse -->
       </div>
-    </div>
-  </nav>
-</header>
+    </nav>
