@@ -13,6 +13,8 @@ export class NavbarComponent {
   previousScroll = 0;
   constructor(public commonService: CommonService, private translate: TranslateService) {
     translate.setDefaultLang('en');
+
+    this.loadjscssfile("assets/style/main.scss", "css");
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -39,6 +41,22 @@ export class NavbarComponent {
     setTimeout(() => {
       this.commonService.navbarToggleValue = false;
     }, 100);
+  }
+
+  loadjscssfile(filename: string, filetype: string) {
+    var fileref = undefined;
+    if (filetype == "js") { //if filename is a external JavaScript file
+      fileref = document.createElement('script')
+      fileref.setAttribute("type", "text/javascript")
+      fileref.setAttribute("src", filename)
+    } else if (filetype == "css") { //if filename is an external CSS file
+      fileref = document.createElement("link")
+      fileref.setAttribute("rel", "stylesheet")
+      fileref.setAttribute("type", "text/css")
+      fileref.setAttribute("href", filename)
+    }
+    if (typeof fileref != "undefined")
+      document.getElementsByTagName("head")[0].appendChild(fileref)
   }
 
 }

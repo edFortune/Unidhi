@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../../common.service';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 
 @Component({
@@ -8,12 +9,30 @@ import { CommonService } from '../../common.service';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
+  apiKey = ''
+  url = 'https://translation.googleapis.com/language/translate';
+  result: any;
+  q: any;
 
-  constructor(public commonService: CommonService) {
+  constructor(public commonService: CommonService, private http: HttpClient) {
+
+
   }
 
   ngOnInit() {
+    this.q = "Good";
+    this.translate();
+    console.log(this.result);
+  }
 
+  translate(): void {
+    let params = new HttpParams();
+    params = params.append('q', this.q);
+    params = params.append('target', 'es');
+    params = params.append('key ', this.apiKey);
+
+    this.http.get(this.url, { params: params })
+      .subscribe(response => this.result = response);
   }
 
   sidebarItems = [
