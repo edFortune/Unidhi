@@ -1,34 +1,55 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-nav-home',
   templateUrl: './nav-home.component.html',
   styleUrls: ['./nav-home.component.css']
 })
-export class NavHomeComponent implements OnInit {
+export class NavHomeComponent implements OnInit, OnDestroy {
 
-  constructor() {
-    //CSS
-    this.loadjscssfile("assets/css/bootstrap.min.css", "css");
-
-    this.loadjscssfile("assets/css/font-awesome.min.css", "css");
-    this.loadjscssfile("assets/css/animate.css", "css");
-    this.loadjscssfile("assets/css/prettyPhoto.css", "css");
-
-    this.loadjscssfile("assets/css/style.css", "css");
-
-    //JS
-
-    this.loadjscssfile("assets/js/wow.min.js", "js");
-    this.loadjscssfile("assets/js/bootstrap.min.js", "js");
-    this.loadjscssfile("assets/js/jquery.prettyPhoto.js", "js");
-    this.loadjscssfile("assets/js/jquery.isotope.min.js", "js");
-    this.loadjscssfile("assets/js/functions.js", "js");
-  }
+  constructor() { }
 
   ngOnInit() {
+    //CSS
+    this.jscssfileState("assets/css/bootstrap.min.css", "css", "load");
+    this.jscssfileState("assets/css/font-awesome.min.css", "css", "load");
+    this.jscssfileState("assets/css/animate.css", "css", "load");
+    this.jscssfileState("assets/css/prettyPhoto.css", "css", "load");
+    this.jscssfileState("assets/css/style.css", "css", "load");
 
+    //JS
+    this.jscssfileState("assets/js/wow.min.js", "js", "load");
+    this.jscssfileState("assets/js/bootstrap.min.js", "js", "load");
+    this.jscssfileState("assets/js/jquery.prettyPhoto.js", "js", "load");
+    this.jscssfileState("assets/js/jquery.isotope.min.js", "js", "load");
+    this.jscssfileState("assets/js/functions.js", "js", "load");
   }
+
+  ngOnDestroy() {
+    //CSS
+    this.jscssfileState("assets/css/bootstrap.min.css", "css", "destroy");
+    this.jscssfileState("assets/css/font-awesome.min.css", "css", "destroy");
+    this.jscssfileState("assets/css/animate.css", "css", "destroy");
+    this.jscssfileState("assets/css/prettyPhoto.css", "css", "destroy");
+    this.jscssfileState("assets/css/style.css", "css", "destroy");
+
+    //JS
+    this.jscssfileState("assets/js/wow.min.js", "js", "destroy");
+    this.jscssfileState("assets/js/bootstrap.min.js", "js", "destroy");
+    this.jscssfileState("assets/js/jquery.prettyPhoto.js", "js", "destroy");
+    this.jscssfileState("assets/js/jquery.isotope.min.js", "js", "destroy");
+    this.jscssfileState("assets/js/functions.js", "js", "destroy");
+  }
+
+
+  jscssfileState(filename: string, filetype: string, state: string) {
+    if (state == "load")
+      this.loadjscssfile(filename, filetype);
+    else if (state == "destroy")
+      this.removejscssfile(filename, filetype);
+  }
+
+
 
   loadjscssfile(filename: string, filetype: string) {
     var fileref = undefined;
@@ -44,6 +65,16 @@ export class NavHomeComponent implements OnInit {
     }
     if (typeof fileref != "undefined")
       document.getElementsByTagName("head")[0].appendChild(fileref)
+  }
+
+  removejscssfile(filename: string, filetype: string) {
+    var targetelement = (filetype == "js") ? "script" : (filetype == "css") ? "link" : "none" //determine element type to create nodelist from
+    var targetattr = (filetype == "js") ? "src" : (filetype == "css") ? "href" : "none" //determine corresponding attribute to test for
+    var allsuspects = document.getElementsByTagName(targetelement)
+    for (var i = allsuspects.length; i >= 0; i--) { //search backwards within nodelist for matching elements to remove
+      if (allsuspects[i] && allsuspects[i].getAttribute(targetattr) != null && allsuspects[i].getAttribute(targetattr).indexOf(filename) != -1)
+        allsuspects[i].parentNode.removeChild(allsuspects[i]) //remove element by calling parentNode.removeChild()
+    }
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonService } from '../../common.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,9 @@ import { CommonService } from '../../common.service';
 export class NavbarComponent {
 
   previousScroll = 0;
-  constructor(public commonService: CommonService) { }
+  constructor(public commonService: CommonService, private translate: TranslateService) {
+    translate.setDefaultLang('en');
+  }
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(event) {
