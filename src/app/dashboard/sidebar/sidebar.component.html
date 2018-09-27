@@ -4,13 +4,17 @@
     <span class="text-uppercase p-3">ad</span>
     <strong class="heading text-uppercase d-inline-block mini-hide">Unidhi ADMIN</strong>
   </div>
+
   <hr class="underline">
   <div class="sidebar-body">
     <ul>
       <li *ngFor="let item of sidebarItems;let i = index;" class="sidebar-item" [class.active]="temp.isActive" #temp="routerLinkActive"
         routerLinkActive [routerLinkActiveOptions]="{exact: true}">
-        <a *ngIf="!item.subItem" [routerLink]="item.link"><i class="material-icons">{{item.icon}}</i><strong class="mini-hide text-capitalize ">{{item.label}}</strong><span
-            class="arrow mini-hide"></span></a>
+        <a *ngIf="!item.subItem" [routerLink]="item.link">
+          <i class="material-icons">{{item.icon}}</i>
+          <strong class="mini-hide text-capitalize ">{{ item.label }}</strong>
+          <span class="arrow mini-hide"></span>
+        </a>
         <!-- if sub menu  -->
         <a *ngIf="!!item.subItem" data-toggle="collapse" [href]="'#'+item.label.split(' ').join('')" [class.collapsed]="!temp.isActive"><i
             class="material-icons">{{item.icon}}</i><strong class="text-capitalize mini-hide">{{item.label}}</strong><i

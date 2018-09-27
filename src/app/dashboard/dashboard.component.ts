@@ -2,6 +2,7 @@ import { Component, OnInit, Renderer2, AfterViewChecked } from '@angular/core';
 import { Router, RouteConfigLoadStart, RouteConfigLoadEnd, NavigationEnd } from '@angular/router';
 import { CommonService } from '../common.service';
 import * as NProgress from 'nprogress';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,7 +14,10 @@ export class DashboardComponent implements OnInit, AfterViewChecked {
 
   commonService;
 
-  constructor(private router: Router, private cs: CommonService, private renderer: Renderer2) {
+  constructor(private router: Router, private cs: CommonService,
+    private renderer: Renderer2,
+    private translate: TranslateService) {
+
     this.commonService = cs;
     NProgress.configure({ showSpinner: false });
     this.renderer.addClass(document.body, 'preload');

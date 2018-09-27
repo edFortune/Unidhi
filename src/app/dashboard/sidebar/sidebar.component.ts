@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonService } from '../../common.service';
 
 
@@ -7,9 +7,14 @@ import { CommonService } from '../../common.service';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
 
-  constructor(public commonService: CommonService) { }
+  constructor(public commonService: CommonService) {
+  }
+
+  ngOnInit() {
+
+  }
 
   sidebarItems = [
     { link: '/', label: 'Dashboard', icon: 'dashboard' },
