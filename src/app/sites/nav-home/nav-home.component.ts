@@ -8,11 +8,14 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 export class NavHomeComponent implements OnInit, OnDestroy {
 
   constructor() {
+
     var hs = document.getElementsByTagName('style');
     for (var i = 0, max = hs.length; i < max; i++) {
-      if (hs[i])
+      if (hs[i]) {
         hs[i].parentNode.removeChild(hs[i]);
+      }
     }
+
   }
 
   ngOnInit() {
