@@ -22,9 +22,24 @@
 </head>
 
 <body id="">
+  <div style="z-index:1050; position:fixed;top:50px;" id="google_translate_element"></div>
+
+
   <app-root>
 
   </app-root>
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+
+  </script>
+
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <script src="../../../assets/js/jquery-2.1.1.min.js"></script>
   <script src="../../../assets/js/bootstrap.min.js"></script>
