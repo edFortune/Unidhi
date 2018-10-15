@@ -1,5 +1,5 @@
 /* @import url('../../../assets/css/style.css'); */
-nav{
+/* nav{
     background-color: #b1040e;
     box-shadow: 0 0 10px rgba(0,0,0,.15), 0 3px 3px rgba(0,0,0,.15);
     
@@ -19,9 +19,9 @@ nav{
 
 .navbar-default .navbar-nav>li>a{
     color: #fff;
-}
+} */
 
-.dropdown-menu{
+/* .dropdown-menu{
     background-color: #fff;
     width: 250px;
     padding: 24 26;
@@ -40,4 +40,17 @@ nav{
 }
 
 
+ */
+
+.navbar{
+    padding: .8rem;
+}
+
+.navbar-nav li{
+    padding-right: 20px;
+}
+
+.nav-link{
+    font-size: 1.1em !important;
+}
 

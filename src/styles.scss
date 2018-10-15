@@ -1,14 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Quicksand');
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300|Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
 @import 'mixins';
 @import 'bootstrap-override';
 @import 'third-party-overrides';
 
 html,
-body * {
-  @include scroll-style(rgba($black, .4), rgba($white, .4), .4rem);
+body  {
+    height: 100%;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    color:#222;
 }
 
 /**** preload to hide transition animation effect on website load ****/
