@@ -7,6 +7,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class NavHomeComponent implements OnInit, OnDestroy {
 
+<<<<<<< HEAD
   // constructor() {
   //   var hs = document.getElementsByTagName('style');
   //   for (var i = 0, max = hs.length; i < max; i++) {
@@ -14,6 +15,18 @@ export class NavHomeComponent implements OnInit, OnDestroy {
   //       hs[i].parentNode.removeChild(hs[i]);
   //   }
   // }
+=======
+  constructor() {
+
+    var hs = document.getElementsByTagName('style');
+    for (var i = 0, max = hs.length; i < max; i++) {
+      if (hs[i]) {
+        hs[i].parentNode.removeChild(hs[i]);
+      }
+    }
+
+  }
+>>>>>>> 47e35b74aec11c8661664b2993a4562a8d7dee30
 
   ngOnInit() {
     // //CSS

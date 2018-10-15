@@ -15,6 +15,8 @@ import { User } from './user';
 export class AuthService {
   user$: Observable<User>;
   authState: firebase.User = null;
+  private user: Observable<firebase.User>;
+  private userDetails: firebase.User = null;
 
   constructor(private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
@@ -31,6 +33,21 @@ export class AuthService {
     //     }
 
     //   })
+
+    this.user = afAuth.authState;
+
+    this.user.subscribe(
+      (user) => {
+        if (user) {
+          this.userDetails = user;
+          //console.log(this.userDetails);
+        }
+        else {
+          this.userDetails = null;
+        }
+      }
+    );
+
   }
 
 
@@ -39,6 +56,16 @@ export class AuthService {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
+  isLoggedIn() {
+    return this.user;
+  }
+
+  logout() {
+    this.afAuth.auth.signOut()
+      .then((res) => this.router.navigate(['/']));
+  }
+
+
   private oAuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((credentail) => {
@@ -46,9 +73,7 @@ export class AuthService {
       })
   }
 
-  signOut() {
-    this.afAuth.auth.signOut();
-  }
+
 
   private updateUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
